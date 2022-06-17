@@ -1,0 +1,11 @@
+#/bin/bash
+sudo su
+yum install epel-release -y
+yum install ansible
+useradd ansadmin
+passwd ansadmin
+vi /etc/ssh/sshd_config
+ssh-keygen
+ssh-copy-id <target ip>
+echo "target ip" > /etc/ansible/hosts
+ansible all -m ping
